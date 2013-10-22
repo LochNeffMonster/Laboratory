@@ -13,7 +13,7 @@
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 const int SCREEN_BPP = 32;
-const int FRAMES_PER_SECOND = 20;
+const int FRAMES_PER_SECOND = 60;
 //const int DOT_WIDTH = 20;
 //const int DOT_HEIGHT = 20;
 
@@ -62,8 +62,6 @@ int main(int argc, char* args[]) {
 		fps.start();
 		//while there's an event to handle
 		while (SDL_PollEvent(&event)) {
-			//Handle events for the dot
-			myDot.handle_input(event);
 			//If the user has Xed out the window
 			if (event.type == SDL_QUIT) {
 				//Quit the program
@@ -71,12 +69,12 @@ int main(int argc, char* args[]) {
 			}
 		}
 		//Move the dot
-		myDot.move();
+		myDot.update();
 	// Draw function stuff
 		//Fill in the background
 		draw_texture(renderer, background, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		//Then show the Dot
-		draw_texture(renderer, dot, myDot.x, myDot.y, 50, 50);
+		draw_texture(renderer, dot, (int)myDot.x, (int)myDot.y, DOT_WIDTH, DOT_HEIGHT);
 		//Update Screen
 		SDL_RenderPresent(renderer);
 

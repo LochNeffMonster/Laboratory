@@ -11,24 +11,22 @@
 #include "SDL/SDL.h"
 const int DOT_WIDTH = 20;
 const int DOT_HEIGHT = 20;
-//const int SCREEN_WIDTH = 762;
-//const int SCREEN_HEIGHT = 441;
+const double DOT_ACCEL = 1;
+const double DOT_DAMP = 0.9;
 
 class Dot
 {
 	//private:
 	public:
 	//the offsets of the dot
-	int x,y;
+	double x,y;
 	//velocity of the dot
-	int xVel, yVel;
+	double xVel, yVel;
 
 	//public:
 	Dot();
-	//Handles key presses
-	void handle_input(SDL_Event event);
-	//Move the dot
-	void move();
+	//Updates the dots state
+	void update();
 	//Show on the screen
 	void show();
 };

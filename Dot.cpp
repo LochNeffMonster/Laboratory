@@ -13,61 +13,50 @@ Dot::Dot() {
 	yVel = 0;
 }
 //Handles key presses
-void Dot::handle_input(SDL_Event event) {
+void Dot::update() {
+	const Uint8* keystates = SDL_GetKeyboardState(NULL);
+
+	xVel *= DOT_DAMP;
+	yVel *= DOT_DAMP;
+
 	//If a key was pressed
-	if (event.type == SDL_KEYDOWN) {
-		//Adjust the velocity
-		switch (event.key.keysym.sym) {
-		case SDLK_UP:
-			yVel -= DOT_HEIGHT / 2;
-			break;
-		case SDLK_DOWN:
-			yVel += DOT_HEIGHT / 2;
-			break;
-		case SDLK_LEFT:
-			xVel -= DOT_WIDTH / 2;
-			break;
-		case SDLK_RIGHT:
-			xVel += DOT_WIDTH / 2;
-			break;
-		}
-	} //If a key was released
-	else if (event.type == SDL_KEYUP) {
-		//Adjust the velocity
-		switch (event.key.keysym.sym) {
-		case SDLK_UP:
-			yVel += DOT_HEIGHT / 2;
-			break;
-		case SDLK_DOWN:
-			yVel -= DOT_HEIGHT / 2;
-			break;
-		case SDLK_LEFT:
-			xVel += DOT_WIDTH / 2;
-			break;
-		case SDLK_RIGHT:
-			xVel -= DOT_WIDTH / 2;
-			break;
-		}
+	if (keystates[SDL_Scancode::SDL_SCANCODE_UP]) {
+		yVel -= DOT_ACCEL;
 	}
-}
-//Move the dot
-void Dot::move() {
+	if (keystates[SDL_Scancode::SDL_SCANCODE_DOWN]) {
+		yVel += DOT_ACCEL;
+	}
+	if (keystates[SDL_Scancode::SDL_SCANCODE_LEFT]) {
+		xVel -= DOT_ACCEL;
+	}
+	if (keystates[SDL_Scancode::SDL_SCANCODE_RIGHT]) {
+		xVel += DOT_ACCEL;
+	}
+
 	//Move the dot left or right
 	x += xVel;
 
-	//If the dot went too far to the left or right
-	if ((x < 0) || (x + DOT_WIDTH > 762)) {
-		//move back
-		x -= xVel;
+	//If the dot went too far left or right
+	if (x < 0){
+		x = 0;
+		xVel = -xVel;
+	}
+	else if (x + DOT_WIDTH > 640){
+		x = 640 - DOT_WIDTH;
+		xVel = -xVel;
 	}
 
 	//Move the dot up or down
 	y += yVel;
 
 	//If the dot went too far up or down
-	if ((y < 0) || (y + DOT_HEIGHT > 441)) {
-		//move back
-		y -= yVel;
+	if (y < 0){
+		y = 0;
+		yVel = -yVel;
+	}
+	else if (y + DOT_HEIGHT > 480){
+		y = 480 - DOT_HEIGHT;
+		yVel = -yVel;
 	}
 }
 //Show on the screen
