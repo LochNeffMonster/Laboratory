@@ -5,6 +5,7 @@
  *      Author: AndrewTNeff
  */
 
+#include "RakPeerInterface.h"
 #include "SDL/SDL.h"
 #include "Timer.h"
 #include "Dot.h"
