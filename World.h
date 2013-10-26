@@ -10,11 +10,13 @@
 class World{
 	std::vector<Entity*> m_entities;
 	Tilemap* m_tilemap;
+	int m_currentPerspective;
 
 	void update();
 	void draw();
 	void addEntity(Entity* entity);
 	void removeEntity(Entity* entity);
+	void setPerspective(int perspective);
 };
 
 #endif

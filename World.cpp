@@ -30,3 +30,7 @@ void World::removeEntity(Entity* entity){
 		}
 	}
 }
+
+void World::setPerspective(int perspective){
+	m_currentPerspective = perspective;
+}
