@@ -4,6 +4,7 @@
 #include "SDL/SDL.h"
 
 class Tilemap{
+public:
 	static const int WIDTH = 12;
 	static const int HEIGHT = 12;
 	static const int TILES = 5;
@@ -17,7 +18,6 @@ class Tilemap{
 
 	void draw();
 
-	///
 	void setTile(int tileX, int tileY, int newTile);
 	void setTile(double posX, double posY, int newTile);
 	int getTile(int tileX, int tileY);
