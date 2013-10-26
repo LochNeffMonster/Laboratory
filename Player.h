@@ -12,6 +12,7 @@ public:
 	static const int PLAYER_SIZE;
 
 	double m_velX, m_velY;
+	//Player number is 0 for the first player, or 1 for the second player
 	int m_playerNumber;
 
 	Player(int playerNumber);

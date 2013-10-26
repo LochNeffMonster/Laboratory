@@ -1,5 +1,9 @@
 #include "Player.h"
 
+const double Player::PLAYER_ACCEL = 0.9;
+const double Player::PLAYER_DAMP = 0.85;
+const int Player::PLAYER_SIZE = 20;
+
 Player::Player(int playerNumber){
 	m_playerNumber = playerNumber;
 
