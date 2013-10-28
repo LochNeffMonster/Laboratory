@@ -8,7 +8,7 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-#include "SDL/SDL.h"
+#include <SDL.h>
 //The timer
 class Timer
 {
