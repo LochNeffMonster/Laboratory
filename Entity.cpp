@@ -20,3 +20,7 @@ void Entity::setImage(SDL_Texture* texture, int width, int height){
 	m_imageCenterX = m_imageWidth / 2;
 	m_imageCenterY = m_imageHeight / 2;
 }
+
+void Entity::setWorld(World* world){
+	m_world = world;
+}

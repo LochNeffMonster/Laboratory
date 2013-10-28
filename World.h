@@ -7,7 +7,10 @@
 #include "Entity.h"
 #include "Tilemap.h"
 
+class Entity;
+
 class World{
+public:
 	std::vector<Entity*> m_entities;
 	Tilemap* m_tilemap;
 	int m_currentPerspective;

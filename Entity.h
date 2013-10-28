@@ -2,7 +2,10 @@
 #define _ENTITY_H_
 
 #include <string>
+#include "World.h"
 #include "SDL/SDL.h"
+
+class World;
 
 class Entity{
 public:
