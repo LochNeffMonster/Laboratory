@@ -7,8 +7,3 @@
 *.vcxproj
 *.filters
 *.user
-/Debug/HorrorStories.tlog
-/Debug
-/HorrorStories.opensdf
-/HorrorStories.sdf
-/HorrorStories.v12.suo
