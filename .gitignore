@@ -4,6 +4,10 @@
 
 /HorrorStoriesCamera/Debug/HorrorSt.E0C9C9E1.tlog
 /HorrorStoriesCamera/Debug
+*.opensdf
+*.sdf
+*.sln
+*.suo
 *.vcxproj
 *.filters
 *.user
